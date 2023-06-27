@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.EntityModels.MongoDB", "TrackR.Common.EntityModels.MongoDB\TrackR.Common.EntityModels.MongoDB.csproj", "{743D5188-AE9B-4DCB-AC74-39E5E08D132B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.DataContext.MongoDB", "TrackR.Common.DataContext.MongoDB\TrackR.Common.DataContext.MongoDB.csproj", "{B68D4114-91C9-46E0-9B86-EA2E2111B900}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.UnitTests", "TrackR.Common.UnitTests\TrackR.Common.UnitTests.csproj", "{931A2E65-A36B-4D0C-8F03-BCFBD2291984}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.BlazorWASM", "TrackR.Common.BlazorWASM\TrackR.Common.BlazorWASM.csproj", "{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{743D5188-AE9B-4DCB-AC74-39E5E08D132B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743D5188-AE9B-4DCB-AC74-39E5E08D132B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743D5188-AE9B-4DCB-AC74-39E5E08D132B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743D5188-AE9B-4DCB-AC74-39E5E08D132B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68D4114-91C9-46E0-9B86-EA2E2111B900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68D4114-91C9-46E0-9B86-EA2E2111B900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68D4114-91C9-46E0-9B86-EA2E2111B900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68D4114-91C9-46E0-9B86-EA2E2111B900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{931A2E65-A36B-4D0C-8F03-BCFBD2291984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{931A2E65-A36B-4D0C-8F03-BCFBD2291984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{931A2E65-A36B-4D0C-8F03-BCFBD2291984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{931A2E65-A36B-4D0C-8F03-BCFBD2291984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
