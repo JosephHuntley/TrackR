@@ -6,11 +6,11 @@ namespace TrackR.Models.SQL;
 public class Subtask
 {
     [Key]
-    public int Id { get; set; }
-    
-    public int ActivityId { get; set; }
+    public int SubtaskId { get; set; }
 
-    [ForeignKey("ActivityId")] 
+    public int TaskId { get; set; }
+
+    [ForeignKey("TaskId")] 
     public virtual Activity Parent { get; set; } = null!;
 
     public string Title { get; set; } = null!;

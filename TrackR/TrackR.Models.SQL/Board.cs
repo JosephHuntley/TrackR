@@ -6,7 +6,7 @@ namespace TrackR.Models.SQL;
 public class Board
 {
     [Key]
-    public int Id { get; set; }
+    public int BoardId { get; set; }
 
     public string Name { get; set; } = null!;
 
