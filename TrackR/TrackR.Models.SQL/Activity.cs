@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TrackR.Models.SQL;
 
-public class Task
+public class Activity
 {
     [Key]
     public int Id { get; set; }

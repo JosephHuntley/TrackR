@@ -11,6 +11,10 @@ public class Board
     public string Name { get; set; } = null!;
 
     [InverseProperty("Board")]
-    public ICollection<Task> Tasks { get; set; } = null!;
+    public ICollection<Activity> Tasks { get; set; } = null!;
+    
+    public DateTime CreatedDate { get; set; }
+
+    public DateTime UpdatedDate { get; set; }
 
 }

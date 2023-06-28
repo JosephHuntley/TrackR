@@ -8,10 +8,10 @@ public class Subtask
     [Key]
     public int Id { get; set; }
     
-    public int ParentId { get; set; }
-    
-    [ForeignKey("ParentID")]
-    public virtual Task? Parent { get; set; }
+    public int ActivityId { get; set; }
+
+    [ForeignKey("ActivityId")] 
+    public virtual Activity Parent { get; set; } = null!;
 
     public string Title { get; set; } = null!;
 
