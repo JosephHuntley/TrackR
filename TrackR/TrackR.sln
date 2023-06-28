@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.EntityModels.MongoDB", "TrackR.Common.EntityModels.MongoDB\TrackR.Common.EntityModels.MongoDB.csproj", "{743D5188-AE9B-4DCB-AC74-39E5E08D132B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Models.SQL", "TrackR.Models.SQL\TrackR.Models.SQL.csproj", "{743D5188-AE9B-4DCB-AC74-39E5E08D132B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.DataContext.MongoDB", "TrackR.Common.DataContext.MongoDB\TrackR.Common.DataContext.MongoDB.csproj", "{B68D4114-91C9-46E0-9B86-EA2E2111B900}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.DataContext.SQL", "TrackR.DataContext.SQL\TrackR.DataContext.SQL.csproj", "{B68D4114-91C9-46E0-9B86-EA2E2111B900}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.UnitTests", "TrackR.Common.UnitTests\TrackR.Common.UnitTests.csproj", "{931A2E65-A36B-4D0C-8F03-BCFBD2291984}"
 EndProject
