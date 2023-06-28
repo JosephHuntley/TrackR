@@ -5,7 +5,7 @@ using TrackR.Models.SQL;
 
 namespace TrackR.DataContext.SQL;
 
-public class SqlContext : DbContext
+public partial class SqlContext : DbContext
 {
     public SqlContext()
     {
@@ -20,6 +20,14 @@ public class SqlContext : DbContext
     public DbSet<Board> Boards { get; set; } = null!;
     public DbSet<Subtask> Subtasks { get; set; } = null!;
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer("Data Source=.;User=sa; Password=D3veloper;TrustServerCertificate=True;");
+        }
+    }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         byte[] randomSalt1 = RandomNumberGenerator.GetBytes(64);
@@ -100,4 +108,6 @@ public class SqlContext : DbContext
             }
         );
     }
+    
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
