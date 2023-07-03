@@ -108,20 +108,11 @@ body{
     display: flex;
     align-items: center;
     gap: .5rem;
-}
-
-.board svg{
-    width: 24px;
-    height: 24px;
     fill: var(--text-secondary);
     color: var(--text-secondary);
 }
 
-.board p{
-    color: var(--text-secondary);
-}
-
-.board p:hover{
+.board:hover{
     color: var(--text-primary);
 }
 
