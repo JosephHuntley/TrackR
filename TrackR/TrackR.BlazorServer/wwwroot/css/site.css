@@ -1,0 +1,196 @@
+/* ######### Reset Values ######### */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+/* ######### Blazor Error ######## */
+
+#blazor-error-ui{
+  background: lightyellow;
+  bottom: 0;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+  display: none;
+  left: 0;
+  padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;}
+ #blazor-error-ui .dismiss {
+  cursor: pointer;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;}
+
+/* ######### Main Styles ######### */
+:root{
+    /* Assign Variables */
+    --bg-primary:#191922;
+    --bg-secondary:#2B2B34;
+    --text-primary:#fff;
+    --text-secondary:#686D81;
+    --primary:#38BDD4;
+    --border:#464650;
+}
+
+body{
+    background:var(--bg-primary);
+    font-family: Poppins;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+ 
+#topbar{
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  height: 12vh;
+  width: 80vw;
+}
+#sidebar{
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  height: 100vh;
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+
+#logo{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo  p{
+  color: var(--text-primary);
+  font-size: 2rem;
+  margin-left: .5rem;
+  font-weight: 700;
+}
+
+#boards {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.board{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.board svg{
+    width: 24px;
+    height: 24px;
+    fill: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+.board p{
+    color: var(--text-secondary);
+}
+
+.board p:hover{
+    color: var(--text-primary);
+}
+
+#allboards{
+    color: var(--text-secondary);
+    font-size: 1rem;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.active{
+    border-radius: 0px 40px 40px 0px;
+    background: var(--primary);
+    width: 15vw;
+}
+
+.active  p{
+    color: var(--text-primary);
+}
+
+.active{
+    color: var(--text-primary);
+    fill: var(--text-primary);
+}
+
+#create_board{
+    color: var(--primary);
+    display: flex;
+    gap:1.5rem;
+    align-items: center;
+}
+
+#create_board:hover {
+    color: var(--text-primary);
+    fill: var(--text-primary);
+}
+
+.logo-svg {
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.logo-svg::before,
+.logo-svg::after {
+    content: '';
+    position: absolute;
+    height: 30px;
+    border-radius: 4.41177px;
+}
+
+.logo-svg::before {
+    width: 8.82353px;
+    background-color: #38BDD4; /* Change to the desired color */
+}
+
+.logo-svg::after {
+    width: 8.82353px;
+    left: 10.5883px;
+    background-color: #38BDD4; /* Change to the desired color */
+    opacity: 0.8;
+}
+
+.logo-svg span {
+    position: absolute;
+    width: 8.82353px;
+    left: 21.1764px;
+    background-color: #5CCFE6; /* Change to the desired color */
+    opacity: 0.6;
+    height: 30px;
+    border-radius: 4.41177px;
+}
