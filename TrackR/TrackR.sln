@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.UnitTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.Common.BlazorWASM", "TrackR.Common.BlazorWASM\TrackR.Common.BlazorWASM.csproj", "{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackR.BlazorServer", "TrackR.BlazorServer\TrackR.BlazorServer.csproj", "{CED00E6D-78AD-412E-8D63-B7557708B383}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE9F3E4B-E59B-415D-8BE6-91C9462CC3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED00E6D-78AD-412E-8D63-B7557708B383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED00E6D-78AD-412E-8D63-B7557708B383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED00E6D-78AD-412E-8D63-B7557708B383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED00E6D-78AD-412E-8D63-B7557708B383}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
