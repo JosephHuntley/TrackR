@@ -1,0 +1,22 @@
+@using System.Diagnostics
+@using TrackR.BlazorServer.Services
+@using TrackR.Models.SQL
+@code{
+    private string Name { get; set; } = null!;
+    [Inject] 
+    private BoardService _bs { get; set; } = null!;
+
+    private async Task HandelCreateBoard()
+    {
+        Board b = new();
+        b.Name = Name;
+        await _bs.CreateBoardAsync(b);
+    }
+}
+<div id="backdrop">
+    <section id="modal" >
+        <p>Name:</p>
+        <input type="text" placeholder="Board Name" @bind="Name"/>
+        <button type="submit" @onclick="() => HandelCreateBoard()">Submit</button>
+    </section>
+</div>

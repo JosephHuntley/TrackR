@@ -5,4 +5,5 @@ namespace TrackR.BlazorServer.Services.Interfaces;
 public interface IBoardService
 {
     public IEnumerable<Board> GetBoards();
+    public Task CreateBoardAsync(Board b);
 }
