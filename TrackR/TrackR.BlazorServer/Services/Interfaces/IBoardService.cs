@@ -2,8 +2,6 @@ using TrackR.Models.SQL;
 
 namespace TrackR.BlazorServer.Services.Interfaces;
 
-public interface IBoardService
+public interface IBoardService : IServices<Board>
 {
-    public IEnumerable<Board> GetBoards();
-    public Task CreateBoardAsync(Board b);
 }
