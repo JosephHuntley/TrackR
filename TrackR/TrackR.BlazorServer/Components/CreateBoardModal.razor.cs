@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using TrackR.BlazorServer.Services;
+using TrackR.BlazorServer.Services.Interfaces;
 using TrackR.Models.SQL;
 
 namespace TrackR.BlazorServer.Components;
@@ -8,7 +9,7 @@ public partial class CreateBoardModal
 {
     private string Name { get; set; } = null!;
     [Inject] 
-    private BoardService _bs { get; set; } = null!;
+    private IBoardService _bs { get; set; } = null!;
     [Parameter]
     public Action ToggleModal { get; set; }
 
