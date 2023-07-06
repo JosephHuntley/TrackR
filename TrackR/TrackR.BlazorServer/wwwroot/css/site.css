@@ -63,11 +63,18 @@ body{
 }
  
 #topbar{
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
-  height: 12vh;
-  width: 80vw;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    height: 12vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
 }
+
+
+
 #sidebar{
   background: var(--bg-secondary);
   border-right: 1px solid var(--border);
@@ -231,3 +238,4 @@ body{
     padding: .5rem 1rem;
     border-radius: 10px;
 }
+

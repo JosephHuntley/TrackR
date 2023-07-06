@@ -44,7 +44,12 @@
     </section>
     <div>
         @* TopMenu *@
-        <div id="topbar"></div>
+        <div id="topbar">
+            <h1>@Boards.Single(b => b.BoardId == ActiveBoard).Name</h1>
+            <div>
+                <button>Add New Task</button>
+            </div>
+        </div>
         @* MainContent *@
         <section></section>
     </div>
