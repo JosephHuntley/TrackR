@@ -24,8 +24,8 @@ public partial class Index : ComponentBase
         ActiveBoard = id;
     }
 
-    private void HandleModal()
+    public void HandleModal()
     {
-        
+        Modal = !Modal;
     }
 }
