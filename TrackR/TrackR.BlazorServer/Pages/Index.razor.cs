@@ -1,31 +1,35 @@
 using Microsoft.AspNetCore.Components;
 using TrackR.BlazorServer.Services;
+using TrackR.BlazorServer.Services.Interfaces;
 using TrackR.Models.SQL;
 
 namespace TrackR.BlazorServer.Pages;
 
 public partial class Index : ComponentBase
 {
-    public IEnumerable<Board> Boards { get; private set; } = null!;
-    public int ActiveBoard { get; set; } = 1;
+    private List<Board> Boards { get; set; } = new List<Board>();
+    public Board ActiveBoard { get; set; } = null!;
     [Inject] 
-    private BoardService _bs { get; set; } = null!;
+    private IBoardService _bs { get; set; } = null!;
 
-    public bool Modal { get; set; } = false;
+    public bool CreateModal { get; set; } = false;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         // Initialize the Boards property by calling a method from the injected service
-        Boards = _bs.GetBoards();
+        Boards = await _bs.GetEntitiesAsync();
+        ActiveBoard = Boards.ToList()[0];
     }
 
-    private void HandleBoardClick(int id)
+    private void HandleBoardClick(Board b)
     {
-        ActiveBoard = id;
+        ActiveBoard = b;
     }
 
-    public void HandleModal()
+    private void HandleCreateModal()
     {
-        Modal = !Modal;
+        CreateModal = !CreateModal;
     }
+    
+    
 }
