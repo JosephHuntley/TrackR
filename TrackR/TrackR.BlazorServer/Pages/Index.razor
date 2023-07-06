@@ -46,8 +46,19 @@
         @* TopMenu *@
         <div id="topbar">
             <h1>@Boards.Single(b => b.BoardId == ActiveBoard).Name</h1>
-            <div>
+            <div id="topbar_right">
                 <button>Add New Task</button>
+                <div id="ellipse">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7" fill="currentColor">
+                        <circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7" fill="currentColor">
+                        <circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7" fill="currentColor">
+                        <circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/>
+                    </svg>
+                </div>
             </div>
         </div>
         @* MainContent *@

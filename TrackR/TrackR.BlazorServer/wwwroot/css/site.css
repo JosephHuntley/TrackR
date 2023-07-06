@@ -73,7 +73,20 @@ body{
     padding: 0 3rem;
 }
 
+#topbar_right{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
+#ellipse{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    fill:var(--text-primary);
+    color: var(--text-primary);
+}
 
 #sidebar{
   background: var(--bg-secondary);
