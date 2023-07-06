@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TrackR.Models.SQL;
 
-public class User
+public class User : Model
 {
     [Key]
     public int UserId { get; set; }
@@ -17,9 +17,5 @@ public class User
     public string Password { get; set; } = null!;
 
     public byte[] Salt { get; set; } = null!;
-
-    public DateTime CreatedDate { get; set; }
-    
-    public DateTime UpdatedDate { get; set; }
 
 }

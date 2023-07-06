@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TrackR.Models.SQL;
 
-public class Subtask
+public class Subtask : Model
 {
     [Key]
     public int SubtaskId { get; set; }
@@ -16,8 +16,4 @@ public class Subtask
     public string Title { get; set; } = null!;
 
     public string Issue { get; set; } = null!;
-    
-    public DateTime CreatedDate { get; set; }
-
-    public DateTime UpdatedDate { get; set; }
 }

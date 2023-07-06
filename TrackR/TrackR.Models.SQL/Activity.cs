@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TrackR.Models.SQL;
 
-public class Activity
+public class Activity : Model
 {
     [Key]
     public int TaskId { get; set; }
@@ -12,8 +12,7 @@ public class Activity
     
     [ForeignKey("BoardId")] 
     public virtual Board Parent { get; set; } = null!;
-
-    public int UserId { get; set; }
+    public int? UserId { get; set; } = 0;
     
     [ForeignKey("UserId")]
     public virtual User? Owner { get; set; }
@@ -23,8 +22,4 @@ public class Activity
     public string Issue { get; set; } = null!;
 
     public virtual ICollection<Subtask> Subtasks { get; set; } = null!;
-
-    public DateTime CreatedDate { get; set; }
-
-    public DateTime UpdatedDate { get; set; }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TrackR.Models.SQL;
 
-public class Board
+public class Board : Model
 {
     [Key]
     public int BoardId { get; set; }
@@ -12,9 +12,4 @@ public class Board
 
     [InverseProperty("Parent")]
     public ICollection<Activity> Tasks { get; set; } = null!;
-    
-    public DateTime CreatedDate { get; set; }
-
-    public DateTime UpdatedDate { get; set; }
-
 }
