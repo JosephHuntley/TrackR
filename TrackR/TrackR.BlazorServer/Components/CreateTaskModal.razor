@@ -1,0 +1,17 @@
+@using TrackR.Models.SQL
+<div id="backdrop" @onclick="ToggleModal"></div>
+<section id="task_modal">
+    <label>Board:</label>
+    <select @bind="BoardId" id="task_modal_select">
+        @foreach (Board b in Boards)
+        {
+            <option value="@b.BoardId">@b.Name</option>
+        }
+    </select>
+    <label>Title:</label>
+    <input type="text" placeholder="Task Name" @bind="Title" id="modal_input"/>
+    <label>Issue:</label>
+    <textarea type="" placeholder="Describe the issue" @bind="Issue" id="task_modal_textbox"/>
+
+    <button type="submit" id="modal_submit" @onclick="HandleSubmitAsync">Submit</button>
+</section>

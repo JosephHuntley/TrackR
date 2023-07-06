@@ -73,10 +73,31 @@ body{
     padding: 0 3rem;
 }
 
+#topbar h1{
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
 #topbar_right{
     display: flex;
     align-items: center;
     gap: 16px;
+}
+
+#topbar_right button{
+    all: unset;
+    cursor: pointer;
+    background: var(--primary);
+    width: 176px;
+    height: 45px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: 1rem;
+    gap: .5rem;
 }
 
 #ellipse{
@@ -160,6 +181,7 @@ body{
 
 #create_board{
     color: var(--primary);
+    fill: var(--primary);
     display: flex;
     gap:1.5rem;
     align-items: center;
@@ -218,7 +240,8 @@ body{
     transform: translate(-50%, -50%);
 }
 
-#modal{
+#modal,
+#task_modal{
     width: 33vw;
     height: 33vh;
     background-color: var(--bg-secondary);
@@ -234,9 +257,16 @@ body{
     justify-content: center;
     color: var(--text-primary);
     gap: 1rem;
+    font-size: 1.5rem;
 }
 
-#modal_input{
+#task_modal{
+    width: 60vw;
+    height: 60vh;
+}
+
+#modal_input,
+#task_modal_textbox{
     color: var(--text-primary);
     background: var(--bg-primary);
     border-radius: 10px;
@@ -250,5 +280,13 @@ body{
     background: var(--primary);
     padding: .5rem 1rem;
     border-radius: 10px;
+}
+
+#task_modal_select{
+    all: unset;
+    background: var(--bg-primary);
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    
 }
 
