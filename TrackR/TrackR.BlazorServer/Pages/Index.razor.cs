@@ -21,15 +21,9 @@ public partial class Index : ComponentBase
         ActiveBoard = Boards.ToList()[0];
     }
 
-    private void HandleBoardClick(Board b)
-    {
-        ActiveBoard = b;
-    }
+    
 
-    private void HandleCreateModal()
-    {
-        CreateModal = !CreateModal;
-    }
+    
     
     
 }
