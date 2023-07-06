@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using TrackR.BlazorServer.Services; // BoardService
+using TrackR.BlazorServer.Services;
+using TrackR.BlazorServer.Services.Interfaces; // BoardService
 using TrackR.DataContext.SQL; // AddSqlContext()
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,8 @@ builder.Services.AddServerSideBlazor();
 // Add DB
 builder.Services.AddSqlContext();
 
-builder.Services.AddTransient<BoardService>();
+builder.Services.AddTransient<IBoardService, BoardService>();
+builder.Services.AddTransient<ITaskService, TaskService>();
 
 var app = builder.Build();
 

@@ -16,7 +16,7 @@ public partial class CreateBoardModal
     {
         Board b = new();
         b.Name = Name;
-        await _bs.CreateBoardAsync(b);
+        await _bs.CreateEntityAsync(b);
         _nm.NavigateTo(_nm.Uri, forceLoad: true);
     }
 }
