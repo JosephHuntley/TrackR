@@ -8,5 +8,13 @@ public partial class Topbar
     [Parameter]
     public IEnumerable<Board> Boards { get; set; } = null!;
 
-    [Parameter] public Board ActiveBoard { get; set; } = null!;
+    [Parameter] 
+    public Board ActiveBoard { get; set; } = null!;
+
+    public bool IsModal { get; set; } = false;
+
+    public void ToggleModal()
+    {
+        IsModal = !IsModal;
+    }
 }
