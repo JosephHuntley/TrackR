@@ -11,10 +11,17 @@ public partial class Topbar
     [Parameter] 
     public Board ActiveBoard { get; set; } = null!;
 
-    public bool IsModal { get; set; } = false;
+    private bool IsModal { get; set; } = false;
 
-    public void ToggleModal()
+    private bool IsMenu { get; set; } = false;
+
+    private void ToggleModal()
     {
         IsModal = !IsModal;
+    }
+
+    private void ToggleMenu()
+    {
+        IsMenu = !IsMenu;
     }
 }

@@ -107,6 +107,29 @@ body{
     gap: 5px;
     fill:var(--text-primary);
     color: var(--text-primary);
+    cursor: pointer;
+}
+
+#topbar_menu{
+    height: 20rem;
+    width: 15rem;
+    background: var(--bg-secondary);
+    position: absolute;
+    top: 12vh;
+    right: 30px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+#topbar_menu_backdrop{
+    width: 100vw;
+    height: 100vh;
+    color: rgba(0,0,0,0);
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #sidebar{
@@ -287,6 +310,5 @@ body{
     background: var(--bg-primary);
     border-radius: 10px;
     padding: .5rem 1rem;
-    
 }
 
