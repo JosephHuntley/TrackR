@@ -1,6 +1,6 @@
 namespace TrackR.Models.SQL;
 
-public class Model
+public abstract class Model
 {
     public DateTime CreatedDate { get; set; }
 
