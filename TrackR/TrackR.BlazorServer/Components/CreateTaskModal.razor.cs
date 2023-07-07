@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using System.ComponentModel.DataAnnotations; // [MaxLength]
 using TrackR.BlazorServer.Services.Interfaces;
 using TrackR.Models.SQL;
 using Activity = TrackR.Models.SQL.Activity;
@@ -9,12 +10,13 @@ public partial class CreateTaskModal
 {
     [Parameter]
     public Action ToggleModal { get; set; }
-    
-    public int BoardId { get; set; }
 
-    public string Title { get; set; } = null!;
+    private int BoardId { get; set; }
 
-    public string Issue { get; set; } = null!;
+    [MaxLength(50)]
+    private string Title { get; set; } = null!;
+
+    private string Issue { get; set; } = null!;
     
     [Parameter]
     public IEnumerable<Board> Boards { get; set; }
@@ -31,7 +33,7 @@ public partial class CreateTaskModal
             Title = Title,
             Issue = Issue,
             BoardId = BoardId,
-            Status = StatusEnum.Todo,
+            SectionId = 1,
             UserId = 1
         };
 
