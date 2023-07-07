@@ -7,7 +7,16 @@ namespace TrackR.BlazorServer.Services;
 
 public class BoardService : Services<Board>, IBoardService
 {
+    private SqlContext _db;
     public BoardService(SqlContext dbContext) : base(dbContext)
     {
+        _db = dbContext;
+    }
+
+    public async Task<List<Board>> GetEntitiesAsync()
+    {
+        return await _db.Boards
+            .Include(b => b.Tasks)
+            .ToListAsync();
     }
 }

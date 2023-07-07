@@ -11,5 +11,5 @@ public class Board : Model
     public string Name { get; set; } = null!;
 
     [InverseProperty("Parent")]
-    public ICollection<Activity> Tasks { get; set; } = null!;
+    public ICollection<Activity> Tasks { get; set; } = new List<Activity>();
 }
