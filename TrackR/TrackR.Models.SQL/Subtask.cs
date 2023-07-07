@@ -7,6 +7,8 @@ public class Subtask : Model
 {
     [Key]
     public int SubtaskID { get; set; }
+    
+    public StatusEnum Status { get; set; }
 
     public int TaskId { get; set; }
 
