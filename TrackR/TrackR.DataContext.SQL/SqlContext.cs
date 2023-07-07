@@ -59,7 +59,7 @@ public partial class SqlContext : DbContext
         modelBuilder.Entity<Activity>().HasData(
             new Activity
             {
-                TaskId = 1,
+                ActivityId = 1,
                 BoardId = 1,
                 UserId = 1,
                 Title = "Build SQL Data Models",
@@ -72,7 +72,7 @@ public partial class SqlContext : DbContext
         modelBuilder.Entity<Subtask>().HasData(
             new Subtask
             {
-                SubtaskId  = 1,
+                SubtaskID  = 1,
                 TaskId = 1,
                 Title = "Board Model",
                 Issue = "Build out the model for boards",
@@ -81,7 +81,7 @@ public partial class SqlContext : DbContext
             }, 
             new Subtask
             {
-                SubtaskId = 2,
+                SubtaskID = 2,
                 TaskId = 1,
                 Title = "User Model",
                 Issue = "Build out the model for user",
@@ -90,7 +90,7 @@ public partial class SqlContext : DbContext
             },
             new Subtask
             {
-                SubtaskId = 3,
+                SubtaskID = 3,
                 TaskId = 1,
                 Title = "Activity Model",
                 Issue = "Build out the activity for boards",
@@ -99,7 +99,7 @@ public partial class SqlContext : DbContext
             }, 
             new Subtask
             {
-                SubtaskId = 4,
+                SubtaskID = 4,
                 TaskId = 1,
                 Title = "Subtask Model",
                 Issue = "Build out the Subtask for user",
