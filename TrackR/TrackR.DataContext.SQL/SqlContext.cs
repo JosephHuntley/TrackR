@@ -96,7 +96,7 @@ public partial class SqlContext : DbContext
             new Subtask
             {
                 SubtaskID  = 1,
-                Status = StatusEnum.Todo,
+                Status = StatusEnum.Done,
                 TaskId = 1,
                 Title = "Board Model",
                 Issue = "Build out the model for boards",
@@ -106,7 +106,7 @@ public partial class SqlContext : DbContext
             new Subtask
             {
                 SubtaskID = 2,
-                Status = StatusEnum.Todo,
+                Status = StatusEnum.Doing,
                 TaskId = 1,
                 Title = "User Model",
                 Issue = "Build out the model for user",
@@ -116,7 +116,7 @@ public partial class SqlContext : DbContext
             new Subtask
             {
                 SubtaskID = 3,
-                Status = StatusEnum.Doing,
+                Status = StatusEnum.Todo,
                 TaskId = 1,
                 Title = "Activity Model",
                 Issue = "Build out the activity for boards",
