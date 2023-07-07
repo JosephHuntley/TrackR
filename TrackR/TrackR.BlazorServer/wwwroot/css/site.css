@@ -61,7 +61,78 @@ body{
   display: flex;
   flex-direction: row;
 }
+
+#tasks{
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-evenly;
+    padding:1.5rem 0;
+    height: 88vh;
+}
+
+#tasks > div{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#tasks h2{
+    color: var(--text-secondary);
+    font-size: .8rem;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.task{
+    border-radius: 10px;
+    background: var(--bg-secondary);
+    width: 228px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.2rem;
+    gap: .5rem;
+}
+
+.task > h3{
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.task > p{
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+#create_column{
+    margin: calc(19px + 1.5rem) 0;
+    height: calc(100% - (19px + 1.5rem) * 2 );
+    width: 228px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+    cursor: pointer;
+}
  
+#new_column{
+    all: unset;
+    font-size: 1.5rem;
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+}
+
+#create_column:hover{
+    color: var(--text-primary);
+}
+
 #topbar{
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--border);
