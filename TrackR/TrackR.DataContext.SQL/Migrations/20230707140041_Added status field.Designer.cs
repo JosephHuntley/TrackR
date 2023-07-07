@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrackR.DataContext.SQL;
 
@@ -11,9 +12,11 @@ using TrackR.DataContext.SQL;
 namespace TrackR.DataContext.SQL.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    partial class SqlContextModelSnapshot : ModelSnapshot
+    [Migration("20230707140041_Added status field")]
+    partial class Addedstatusfield
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,33 +69,11 @@ namespace TrackR.DataContext.SQL.Migrations
                         {
                             ActivityId = 1,
                             BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6080),
+                            CreatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3450),
                             Issue = "Build the data models for SQL database",
                             Status = 1,
                             Title = "Build SQL Data Models",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6080),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ActivityId = 12,
-                            BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6080),
-                            Issue = "Build the frontend in blazor",
-                            Status = 0,
-                            Title = "Build View",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6090),
-                            UserId = 1
-                        },
-                        new
-                        {
-                            ActivityId = 3,
-                            BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6090),
-                            Issue = "Build the db context for SQL database",
-                            Status = 2,
-                            Title = "Build SQL Data Context",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6100),
+                            UpdatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3450),
                             UserId = 1
                         });
                 });
@@ -123,9 +104,9 @@ namespace TrackR.DataContext.SQL.Migrations
                         new
                         {
                             BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(5960),
+                            CreatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3410),
                             Name = "TrackR",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6030)
+                            UpdatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3420)
                         });
                 });
 
@@ -167,42 +148,42 @@ namespace TrackR.DataContext.SQL.Migrations
                         new
                         {
                             SubtaskID = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6140),
+                            CreatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3480),
                             Issue = "Build out the model for boards",
                             Status = 0,
                             TaskId = 1,
                             Title = "Board Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6140)
+                            UpdatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3480)
                         },
                         new
                         {
                             SubtaskID = 2,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6140),
+                            CreatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3480),
                             Issue = "Build out the model for user",
                             Status = 0,
                             TaskId = 1,
                             Title = "User Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6150)
+                            UpdatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3490)
                         },
                         new
                         {
                             SubtaskID = 3,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6150),
+                            CreatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3500),
                             Issue = "Build out the activity for boards",
                             Status = 1,
                             TaskId = 1,
                             Title = "Activity Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6230)
+                            UpdatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3510)
                         },
                         new
                         {
                             SubtaskID = 4,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6240),
+                            CreatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3510),
                             Issue = "Build out the Subtask for user",
                             Status = 2,
                             TaskId = 1,
                             Title = "Subtask Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6240)
+                            UpdatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3510)
                         });
                 });
 
@@ -251,13 +232,13 @@ namespace TrackR.DataContext.SQL.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(5670),
+                            CreatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3050),
                             Email = "Joseph.Huntley@outlook.com",
                             FirstName = "Joseph",
                             LastName = "Huntley",
-                            Password = "4A68242455116F0090288DC50AFA1ADA0261D7CAF76CBFB3A533AFAD27BB88DFCAB8367E38D26E0D423889C3D4C3CD856FBFF96C2B2131C0F4EA5D4C0DD22E9E",
-                            Salt = new byte[] { 50, 147, 138, 145, 155, 248, 69, 164, 249, 18, 235, 192, 3, 82, 187, 36, 206, 26, 119, 243, 47, 201, 89, 114, 172, 136, 16, 9, 211, 134, 130, 110, 4, 17, 159, 211, 208, 93, 227, 51, 135, 5, 233, 93, 133, 67, 139, 221, 102, 231, 175, 228, 242, 50, 146, 126, 178, 30, 58, 35, 235, 33, 173, 41 },
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(5740)
+                            Password = "DA1C9E44AA2C21C0DA69A2172ECE8546444C7F7C6CF6CB166A71B7082070D692390EAD03C57F9E46F2EA9E13F5A21D1F59DB5225951516CBDB49FC36052F547E",
+                            Salt = new byte[] { 133, 145, 188, 43, 227, 163, 120, 92, 15, 66, 137, 34, 173, 214, 121, 18, 248, 51, 41, 159, 105, 172, 165, 5, 38, 186, 165, 115, 169, 177, 197, 183, 149, 81, 40, 123, 146, 39, 69, 172, 206, 67, 216, 120, 190, 251, 62, 239, 161, 170, 128, 153, 103, 50, 60, 191, 102, 255, 209, 7, 129, 59, 24, 161 },
+                            UpdatedDate = new DateTime(2023, 7, 7, 10, 0, 41, 872, DateTimeKind.Local).AddTicks(3100)
                         });
                 });
 

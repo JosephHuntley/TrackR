@@ -31,7 +31,7 @@ public partial class CreateTaskModal
             Title = Title,
             Issue = Issue,
             BoardId = BoardId,
-            //TODO: Update Migrations
+            Status = StatusEnum.Todo,
             UserId = 1
         };
 

@@ -60,10 +60,33 @@ public partial class SqlContext : DbContext
             new Activity
             {
                 ActivityId = 1,
+                Status = StatusEnum.Doing,
                 BoardId = 1,
                 UserId = 1,
                 Title = "Build SQL Data Models",
                 Issue = "Build the data models for SQL database",
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            },
+            new Activity
+            {
+                ActivityId = 12,
+                Status = StatusEnum.Todo,
+                BoardId = 1,
+                UserId = 1,
+                Title = "Build View",
+                Issue = "Build the frontend in blazor",
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            },
+            new Activity
+            {
+                ActivityId = 3,
+                Status = StatusEnum.Done,
+                BoardId = 1,
+                UserId = 1,
+                Title = "Build SQL Data Context",
+                Issue = "Build the db context for SQL database",
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now
             }
@@ -73,6 +96,7 @@ public partial class SqlContext : DbContext
             new Subtask
             {
                 SubtaskID  = 1,
+                Status = StatusEnum.Todo,
                 TaskId = 1,
                 Title = "Board Model",
                 Issue = "Build out the model for boards",
@@ -82,6 +106,7 @@ public partial class SqlContext : DbContext
             new Subtask
             {
                 SubtaskID = 2,
+                Status = StatusEnum.Todo,
                 TaskId = 1,
                 Title = "User Model",
                 Issue = "Build out the model for user",
@@ -91,6 +116,7 @@ public partial class SqlContext : DbContext
             new Subtask
             {
                 SubtaskID = 3,
+                Status = StatusEnum.Doing,
                 TaskId = 1,
                 Title = "Activity Model",
                 Issue = "Build out the activity for boards",
@@ -100,6 +126,7 @@ public partial class SqlContext : DbContext
             new Subtask
             {
                 SubtaskID = 4,
+                Status = StatusEnum.Done,
                 TaskId = 1,
                 Title = "Subtask Model",
                 Issue = "Build out the Subtask for user",

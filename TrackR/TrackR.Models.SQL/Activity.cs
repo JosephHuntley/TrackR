@@ -8,6 +8,8 @@ public class Activity : Model
 {
     [Key]
     public int ActivityId { get; set; }
+    
+    public StatusEnum Status { get; set; }
 
     public int BoardId { get; set; }
 
