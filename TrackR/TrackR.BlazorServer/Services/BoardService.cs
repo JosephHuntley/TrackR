@@ -17,6 +17,7 @@ public class BoardService : Services<Board>, IBoardService
     {
         return await _db.Boards
             .Include(b => b.Tasks)
+                .ThenInclude(t => t.Subtasks)
             .ToListAsync();
     }
 }
