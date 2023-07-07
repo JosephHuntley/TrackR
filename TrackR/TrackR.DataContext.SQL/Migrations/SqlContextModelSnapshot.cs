@@ -40,12 +40,13 @@ namespace TrackR.DataContext.SQL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("SectionId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -57,6 +58,8 @@ namespace TrackR.DataContext.SQL.Migrations
 
                     b.HasIndex("BoardId");
 
+                    b.HasIndex("SectionId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Tasks");
@@ -66,33 +69,33 @@ namespace TrackR.DataContext.SQL.Migrations
                         {
                             ActivityId = 1,
                             BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6080),
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6150),
                             Issue = "Build the data models for SQL database",
-                            Status = 1,
+                            SectionId = 2,
                             Title = "Build SQL Data Models",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6080),
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6150),
                             UserId = 1
                         },
                         new
                         {
                             ActivityId = 12,
                             BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6080),
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6160),
                             Issue = "Build the frontend in blazor",
-                            Status = 0,
+                            SectionId = 1,
                             Title = "Build View",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6090),
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6160),
                             UserId = 1
                         },
                         new
                         {
                             ActivityId = 3,
                             BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6090),
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6160),
                             Issue = "Build the db context for SQL database",
-                            Status = 2,
+                            SectionId = 3,
                             Title = "Build SQL Data Context",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6100),
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6160),
                             UserId = 1
                         });
                 });
@@ -123,19 +126,74 @@ namespace TrackR.DataContext.SQL.Migrations
                         new
                         {
                             BoardId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(5960),
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6110),
                             Name = "TrackR",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6030)
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6120)
+                        });
+                });
+
+            modelBuilder.Entity("TrackR.Models.SQL.Section", b =>
+                {
+                    b.Property<int>("SectionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SectionId"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("SectionId");
+
+                    b.ToTable("Sections");
+
+                    b.HasData(
+                        new
+                        {
+                            SectionId = 1,
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6230),
+                            Name = "TODO",
+                            Position = 1,
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6230)
+                        },
+                        new
+                        {
+                            SectionId = 2,
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6230),
+                            Name = "Doing",
+                            Position = 2,
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6230)
+                        },
+                        new
+                        {
+                            SectionId = 3,
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6240),
+                            Name = "Done",
+                            Position = 3,
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6240)
                         });
                 });
 
             modelBuilder.Entity("TrackR.Models.SQL.Subtask", b =>
                 {
-                    b.Property<int>("SubtaskID")
+                    b.Property<int>("SubtaskId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubtaskID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubtaskId"));
+
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -144,7 +202,7 @@ namespace TrackR.DataContext.SQL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("SectionId")
                         .HasColumnType("int");
 
                     b.Property<int>("TaskId")
@@ -152,57 +210,64 @@ namespace TrackR.DataContext.SQL.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("SubtaskID");
+                    b.HasKey("SubtaskId");
+
+                    b.HasIndex("SectionId");
 
                     b.HasIndex("TaskId");
 
-                    b.ToTable("Subtask");
+                    b.ToTable("Subtasks");
 
                     b.HasData(
                         new
                         {
-                            SubtaskID = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6140),
+                            SubtaskId = 1,
+                            Completed = true,
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6190),
                             Issue = "Build out the model for boards",
-                            Status = 0,
+                            SectionId = 3,
                             TaskId = 1,
                             Title = "Board Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6140)
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6190)
                         },
                         new
                         {
-                            SubtaskID = 2,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6140),
+                            SubtaskId = 2,
+                            Completed = false,
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6190),
                             Issue = "Build out the model for user",
-                            Status = 0,
+                            SectionId = 2,
                             TaskId = 1,
                             Title = "User Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6150)
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6200)
                         },
                         new
                         {
-                            SubtaskID = 3,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6150),
+                            SubtaskId = 3,
+                            Completed = false,
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6200),
                             Issue = "Build out the activity for boards",
-                            Status = 1,
+                            SectionId = 1,
                             TaskId = 1,
                             Title = "Activity Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6230)
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6210)
                         },
                         new
                         {
-                            SubtaskID = 4,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6240),
+                            SubtaskId = 4,
+                            Completed = true,
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6210),
                             Issue = "Build out the Subtask for user",
-                            Status = 2,
+                            SectionId = 3,
                             TaskId = 1,
                             Title = "Subtask Model",
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(6240)
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(6210)
                         });
                 });
 
@@ -251,13 +316,13 @@ namespace TrackR.DataContext.SQL.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(5670),
+                            CreatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(5840),
                             Email = "Joseph.Huntley@outlook.com",
                             FirstName = "Joseph",
                             LastName = "Huntley",
-                            Password = "4A68242455116F0090288DC50AFA1ADA0261D7CAF76CBFB3A533AFAD27BB88DFCAB8367E38D26E0D423889C3D4C3CD856FBFF96C2B2131C0F4EA5D4C0DD22E9E",
-                            Salt = new byte[] { 50, 147, 138, 145, 155, 248, 69, 164, 249, 18, 235, 192, 3, 82, 187, 36, 206, 26, 119, 243, 47, 201, 89, 114, 172, 136, 16, 9, 211, 134, 130, 110, 4, 17, 159, 211, 208, 93, 227, 51, 135, 5, 233, 93, 133, 67, 139, 221, 102, 231, 175, 228, 242, 50, 146, 126, 178, 30, 58, 35, 235, 33, 173, 41 },
-                            UpdatedDate = new DateTime(2023, 7, 7, 11, 51, 25, 353, DateTimeKind.Local).AddTicks(5740)
+                            Password = "515DA5D4CAE5AD5C9CF5470FF42F85D3E5F9C96AC3B8BAEB9362C6F8F4D1FE4A6F45EF5965344DDAB9D5CC31D19B307931CF9A6BF705FD015018F3201BF191DF",
+                            Salt = new byte[] { 117, 154, 129, 18, 15, 40, 209, 55, 200, 224, 144, 48, 225, 71, 239, 90, 65, 142, 1, 232, 161, 190, 90, 84, 107, 136, 158, 141, 130, 132, 234, 99, 41, 99, 107, 62, 58, 172, 212, 36, 70, 40, 1, 167, 216, 234, 179, 69, 87, 196, 141, 44, 80, 30, 137, 18, 62, 182, 110, 28, 173, 49, 228, 29 },
+                            UpdatedDate = new DateTime(2023, 7, 7, 17, 54, 2, 410, DateTimeKind.Local).AddTicks(5870)
                         });
                 });
 
@@ -269,6 +334,12 @@ namespace TrackR.DataContext.SQL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TrackR.Models.SQL.Section", "Section")
+                        .WithMany()
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TrackR.Models.SQL.User", "Owner")
                         .WithMany()
                         .HasForeignKey("UserId");
@@ -276,17 +347,27 @@ namespace TrackR.DataContext.SQL.Migrations
                     b.Navigation("Owner");
 
                     b.Navigation("Parent");
+
+                    b.Navigation("Section");
                 });
 
             modelBuilder.Entity("TrackR.Models.SQL.Subtask", b =>
                 {
-                    b.HasOne("TrackR.Models.SQL.Activity", "Parent")
-                        .WithMany("Subtasks")
-                        .HasForeignKey("TaskId")
+                    b.HasOne("TrackR.Models.SQL.Section", "Section")
+                        .WithMany()
+                        .HasForeignKey("SectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TrackR.Models.SQL.Activity", "Parent")
+                        .WithMany("Subtasks")
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Parent");
+
+                    b.Navigation("Section");
                 });
 
             modelBuilder.Entity("TrackR.Models.SQL.Activity", b =>

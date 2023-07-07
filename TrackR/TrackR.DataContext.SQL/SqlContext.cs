@@ -18,7 +18,8 @@ public partial class SqlContext : DbContext
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Board> Boards { get; set; } = null!;
     public DbSet<Activity> Tasks { get; set; } = null!;
-    // public DbSet<Subtask> Subtasks { get; set; } = null!;
+    public DbSet<Subtask> Subtasks { get; set; } = null!;
+    public DbSet<Section> Sections { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -30,7 +31,15 @@ public partial class SqlContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         byte[] randomSalt1 = RandomNumberGenerator.GetBytes(64);
+        
+        modelBuilder.Entity<Subtask>()
+            .HasOne(s => s.Parent)
+            .WithMany(a => a.Subtasks)
+            .HasForeignKey(s => s.TaskId)
+            .OnDelete(DeleteBehavior.NoAction);
+
         modelBuilder.Entity<User>().HasData(
             
             new User
@@ -60,7 +69,7 @@ public partial class SqlContext : DbContext
             new Activity
             {
                 ActivityId = 1,
-                Status = StatusEnum.Doing,
+                SectionId = 2,
                 BoardId = 1,
                 UserId = 1,
                 Title = "Build SQL Data Models",
@@ -71,7 +80,7 @@ public partial class SqlContext : DbContext
             new Activity
             {
                 ActivityId = 12,
-                Status = StatusEnum.Todo,
+                SectionId = 1,
                 BoardId = 1,
                 UserId = 1,
                 Title = "Build View",
@@ -82,7 +91,7 @@ public partial class SqlContext : DbContext
             new Activity
             {
                 ActivityId = 3,
-                Status = StatusEnum.Done,
+                SectionId = 3,
                 BoardId = 1,
                 UserId = 1,
                 Title = "Build SQL Data Context",
@@ -95,46 +104,76 @@ public partial class SqlContext : DbContext
         modelBuilder.Entity<Subtask>().HasData(
             new Subtask
             {
-                SubtaskID  = 1,
-                Status = StatusEnum.Done,
+                SubtaskId  = 1,
+                SectionId = 3,
                 TaskId = 1,
                 Title = "Board Model",
                 Issue = "Build out the model for boards",
+                Completed = true,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now
             }, 
             new Subtask
             {
-                SubtaskID = 2,
-                Status = StatusEnum.Doing,
+                SubtaskId = 2,
+                SectionId = 2,
                 TaskId = 1,
                 Title = "User Model",
                 Issue = "Build out the model for user",
+                Completed = false,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now
             },
             new Subtask
             {
-                SubtaskID = 3,
-                Status = StatusEnum.Todo,
+                SubtaskId = 3,
+                SectionId = 1,
                 TaskId = 1,
                 Title = "Activity Model",
                 Issue = "Build out the activity for boards",
+                Completed = false,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now
             }, 
             new Subtask
             {
-                SubtaskID = 4,
-                Status = StatusEnum.Done,
+                SubtaskId = 4,
+                SectionId = 3,
                 TaskId = 1,
                 Title = "Subtask Model",
                 Issue = "Build out the Subtask for user",
+                Completed = true,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now
             }
         );
-        
+
+        modelBuilder.Entity<Section>().HasData(
+                new Section
+                {
+                    SectionId = 1,
+                    Name = "TODO",
+                    Position = 1,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now
+                },
+                new Section
+                {
+                    SectionId = 2,
+                    Name = "Doing",
+                    Position = 2,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now
+                },new Section
+                {
+                    SectionId = 3,
+                    Name = "Done",
+                    Position = 3,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now
+                }
+        );
+
     }
     
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
