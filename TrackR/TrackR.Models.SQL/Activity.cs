@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,7 +8,10 @@ public class Activity : Model
     [Key]
     public int ActivityId { get; set; }
     
-    public StatusEnum Status { get; set; }
+    [ForeignKey(nameof(Section))]
+    public int SectionId { get; set; }
+
+    public virtual Section Section { get; set; } = null!;
 
     public int BoardId { get; set; }
 
@@ -21,6 +23,7 @@ public class Activity : Model
     [ForeignKey(nameof(UserId))]
     public virtual User? Owner { get; set; }
 
+    [MaxLength(50)]
     public string Title { get; set; } = null!;
 
     public string Issue { get; set; } = null!;
