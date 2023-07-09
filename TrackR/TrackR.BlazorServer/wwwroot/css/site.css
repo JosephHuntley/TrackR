@@ -190,6 +190,7 @@ body{
     right: 30px;
     border-radius: 10px;
     z-index: 2;
+    border: 1px solid var(--border);
 }
 
 #topbar_menu_backdrop{
@@ -352,6 +353,7 @@ body{
     color: var(--text-primary);
     gap: 1rem;
     font-size: 1.5rem;
+    border: 1px solid var(--border);
 }
 
 #task_modal{
