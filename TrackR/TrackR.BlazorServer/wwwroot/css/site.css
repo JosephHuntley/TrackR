@@ -97,7 +97,7 @@ body{
 }
 
 .task:hover{
-    border: none;
+    border-color: var(--bg-secondary);
 }
 
 .task > h3{
