@@ -18,12 +18,12 @@ public class Services<T> : IServices<T> where T : Model
         _dbSet = _db.Set<T>();
     }
     
-    public async Task<List<T>> GetEntitiesAsync()
+    public virtual async Task<List<T>> GetEntitiesAsync()
     {
         return await _dbSet.ToListAsync();
     }
 
-    public async Task CreateEntityAsync(T entity)
+    public virtual async Task CreateEntityAsync(T entity)
     {
         entity.CreatedDate = DateTime.Now;
         entity.UpdatedDate = DateTime.Now;
