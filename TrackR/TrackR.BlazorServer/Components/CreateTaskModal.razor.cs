@@ -34,7 +34,7 @@ public partial class CreateTaskModal
             Title = Title,
             Issue = Issue,
             BoardId = BoardId,
-            SectionId = 1,
+            SectionId = await _ts.GetSectionIdPositionOneAsync(),
             UserId = 1
         };
 
