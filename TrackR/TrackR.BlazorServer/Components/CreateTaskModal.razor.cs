@@ -24,7 +24,8 @@ public partial class CreateTaskModal
     [Inject]
     private ITaskService _ts { get; set; } = null!;
 
-    [Inject] private NavigationManager _nm { get; set; } = null!;
+    [Inject] 
+    private NavigationManager _nm { get; set; } = null!;
 
     private async void HandleSubmitAsync()
     {
