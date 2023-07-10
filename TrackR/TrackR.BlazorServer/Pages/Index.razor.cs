@@ -17,6 +17,8 @@ public partial class Index : ComponentBase
     // Tasks are seperated by status
     private Dictionary<string, List<Activity>> Tasks { get; set; } = new();
 
+    private bool IsColumnModal { get; set; } = false;
+
     protected override async Task OnInitializedAsync()
     {
         // Initialize the Boards property by calling a method from the injected service
@@ -46,10 +48,10 @@ public partial class Index : ComponentBase
 
         return $"{completed} of {task.Subtasks.Count()}";
     }
-    
-    private async Task CreateColumnAsync()
+
+    private void ToggleModal()
     {
-        throw new NotImplementedException();
+        IsColumnModal = !IsColumnModal;
     }
 
     

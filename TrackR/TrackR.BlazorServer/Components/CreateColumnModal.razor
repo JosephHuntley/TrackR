@@ -1,0 +1,7 @@
+<div id="backdrop" @onclick="ToggleModal"></div>
+<section id="modal">
+    @* TODO: Add the ability to select position *@
+    <p>Name:</p>
+    <input type="text" placeholder="Column Name" @bind="Name" id="modal_input"/>
+    <button type="submit" @onclick="() => HandelCreateColumnAsync()" id="modal_submit">Submit</button>
+</section>
