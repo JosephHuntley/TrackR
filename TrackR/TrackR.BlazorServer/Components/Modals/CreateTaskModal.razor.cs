@@ -1,10 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Components;
-using System.ComponentModel.DataAnnotations; // [MaxLength]
 using TrackR.BlazorServer.Services.Interfaces;
 using TrackR.Models.SQL;
+// [MaxLength]
 using Activity = TrackR.Models.SQL.Activity;
 
-namespace TrackR.BlazorServer.Components;
+namespace TrackR.BlazorServer.Components.Modals;
 
 public partial class CreateTaskModal
 {
