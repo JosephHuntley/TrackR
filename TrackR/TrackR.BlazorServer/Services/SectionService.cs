@@ -15,9 +15,9 @@ public class SectionService : Services<Section>, ISectionService
 
     public override async Task<List<Section>> GetEntitiesAsync()
     {
-         List<Section> entites = await _db.Sections.OrderBy(e => e.Position).ToListAsync();
+         List<Section> entities = await _db.Sections.OrderBy(e => e.Position).ToListAsync();
 
-         return entites;
+         return entities;
     }
 
     public async Task<int> RetrieveMaxPositionAsync()
