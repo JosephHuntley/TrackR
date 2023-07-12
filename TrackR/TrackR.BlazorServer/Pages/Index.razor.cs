@@ -18,6 +18,12 @@ public partial class Index : ComponentBase
     private Dictionary<string, List<Activity>> Tasks { get; set; } = new();
 
     private bool IsColumnModal { get; set; } = false;
+    
+    private bool IsTaskModal { get; set; } = false;
+
+    private Activity? ActiveTask { get; set; } = null!;
+
+    private List<Section> Sections { get; set; } = null!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -25,9 +31,9 @@ public partial class Index : ComponentBase
         Boards = await _bs.GetEntitiesAsync();
         ActiveBoard = Boards.ToList()[0];
 
-        List<Section> sections = await _ss.GetEntitiesAsync();
+         Sections = await _ss.GetEntitiesAsync();
 
-        foreach (Section s in sections)
+        foreach (Section s in Sections)
         {
             
             Tasks.Add(s.Name, ActiveBoard.Tasks.Where(t => t.SectionId == s.SectionId).ToList());
@@ -49,11 +55,19 @@ public partial class Index : ComponentBase
         return $"{completed} of {task.Subtasks.Count()}";
     }
 
-    private void ToggleModal()
+    private void ToggleColumnModal()
     {
         IsColumnModal = !IsColumnModal;
     }
-
+    
+    private void ToggleTaskModal(Activity? t = null)
+    {
+        if (t is not null)
+        {
+            ActiveTask = t;
+        }
+        IsTaskModal = !IsTaskModal;
+    }
     
 
     

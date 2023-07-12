@@ -1,8 +1,16 @@
 ﻿@page "/"
 @using TrackR.Models.SQL
 @using TrackR.BlazorServer.Components
+@using TrackR.BlazorServer.Components.Modals;
 
-
+@if (IsColumnModal)
+{
+    <CreateColumnModal ToggleModal="ToggleColumnModal"/>
+}
+@if (IsTaskModal)
+{
+    <ViewTaskDetailsModal ToggleModal="() => ToggleTaskModal()" ActiveTask="ActiveTask" Sections="Sections"/>
+}
 <div class="flex">
     @* SideMenu *@
     <Sidebar Boards="Boards" ActiveBoard="ActiveBoard"/>
@@ -21,7 +29,7 @@
                         <h2>@pair.Key</h2>
                         @foreach (Activity a in pair.Value)
                         {
-                            <div class="task">
+                            <div @onclick="() => ToggleTaskModal(a)" class="task">
                                 <h3>@a.Title</h3>
                                 <p>@SubtaskCount(a)</p>
                             </div>  
@@ -29,11 +37,8 @@
                     </div>
                 }
                 
-                @if (IsColumnModal)
-                {
-                    <CreateColumnModal ToggleModal="ToggleModal"/>
-                }
-                <div id="create_column" @onclick="ToggleModal">
+                
+                <div id="create_column" @onclick="ToggleColumnModal">
                     <button id="new_column">
                         <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <g id="react-icons/bs/BsPlusSquare">

@@ -329,7 +329,7 @@ body{
 }
 
 /* ===== Create Modal ===== */
-#backdrop{
+.backdrop{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
@@ -341,7 +341,8 @@ body{
 }
 
 #modal,
-#task_modal{
+#task_modal,
+#task_details_modal{
     width: 33vw;
     height: 33vh;
     background-color: var(--bg-secondary);
@@ -364,6 +365,83 @@ body{
 #task_modal{
     width: 60vw;
     height: 60vh;
+}
+
+#task_details_modal{
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+#task_details{
+    flex-basis: 66%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+#task_details > h1{
+    font-size: 3rem;
+    font-weight: 700;
+    width: 70%;
+    text-align: center;
+}
+
+#task_details > p{
+    font-size: 2rem;
+    width: 70%;
+    text-align: center;
+}
+
+#task_details > div{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+}
+
+#task_details_owner{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#task_details_owner > div{
+    width: 50px;
+    height: 50px;
+    background: var(--text-secondary);
+    border:1px solid var(--bg-primary);
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#task_details_column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+}
+
+#task_details_column > label{
+    font-size: 1.3rem;
+}
+
+#task_details_column > select{
+    all: unset;
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+}
+
+#task_details_subtasks{
+    flex-basis: 33%;
 }
 
 #modal_input,
