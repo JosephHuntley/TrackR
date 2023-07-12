@@ -79,7 +79,7 @@ public partial class SqlContext : DbContext
             },
             new Activity
             {
-                ActivityId = 12,
+                ActivityId = 2,
                 SectionId = 1,
                 BoardId = 1,
                 UserId = 1,
