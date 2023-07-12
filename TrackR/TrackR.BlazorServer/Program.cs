@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+
 using TrackR.BlazorServer.Services;
 using TrackR.BlazorServer.Services.Interfaces; // BoardService
 using TrackR.DataContext.SQL; // AddSqlContext()
