@@ -12,6 +12,7 @@ builder.Services.AddSqlContext();
 builder.Services.AddTransient<IBoardService, BoardService>();
 builder.Services.AddTransient<ITaskService, TaskService>();
 builder.Services.AddTransient<ISectionService, SectionService>();
+builder.Services.AddTransient<ISubtaskService, SubtaskService>();
 
 var app = builder.Build();
 
