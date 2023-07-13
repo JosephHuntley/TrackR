@@ -24,4 +24,6 @@ public class Subtask : Model
     public string Issue { get; set; } = null!;
 
     public bool Completed { get; set; } = false;
+
+    public User? Owner { get; set; }
 }
