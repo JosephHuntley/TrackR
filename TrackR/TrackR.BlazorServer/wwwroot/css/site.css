@@ -329,7 +329,8 @@ body{
 }
 
 /* ===== Create Modal ===== */
-.backdrop{
+.backdrop,
+#backdrop_subtask{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
@@ -340,9 +341,14 @@ body{
     transform: translate(-50%, -50%);
 }
 
+#backdrop_subtask{
+    z-index: 22;
+}
+
 #modal,
 #task_modal,
-#task_details_modal{
+#task_details_modal,
+#subtask_details_modal{
     width: 33vw;
     height: 33vh;
     background-color: var(--bg-secondary);
@@ -367,12 +373,19 @@ body{
     height: 60vh;
 }
 
-#task_details_modal{
+#task_details_modal,
+#subtask_details_modal{
     width: 80vw;
     height: 80vh;
     display: flex;
     flex-direction: row;
-    padding: 1rem;
+    padding: 0 1rem ;
+}
+
+#subtask_details_modal{
+    z-index: 23;
+    width: 60vw;
+    height: 60vh;
 }
 
 #task_details{
@@ -440,8 +453,45 @@ body{
     font-size: 1.3rem;
 }
 
+#task_details_separator{
+    height: 90%;
+    border-left: 1px solid var(--border);
+}
+
 #task_details_subtasks{
     flex-basis: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    gap: 1rem;
+    overflow-x: scroll;
+}
+
+#task_details_subtasks > h2{
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+#task_details_subtasks > div{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    cursor: pointer;
+}
+
+#task_details_subtasks_title{
+    color: var(--text-primary);
+    font-size: 2rem;
+}
+
+#task_details_subtasks_section{
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    line-height: 48px;
 }
 
 #modal_input,
