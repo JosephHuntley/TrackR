@@ -465,7 +465,17 @@ body{
     align-items: center;
     height: 90%;
     gap: 1rem;
+    
+}
+
+#task_details_subtasks_list,
+#task_details_create{
     overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 80%;
 }
 
 #task_details_subtasks > h2{
@@ -475,7 +485,7 @@ body{
     font-weight: 600;
 }
 
-#task_details_subtasks > div{
+#task_details_subtasks_list > div{
     width: 80%;
     display: flex;
     justify-content: space-between;
@@ -492,6 +502,22 @@ body{
     color: var(--text-secondary);
     font-size: 1.5rem;
     line-height: 48px;
+}
+
+#task_details_create > div{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.task_details_create_button{
+    all: unset;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.task_details_create_button:hover{
+    color: var(--text-primary);
 }
 
 #modal_input,

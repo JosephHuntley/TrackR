@@ -1,4 +1,10 @@
 @using TrackR.Models.SQL
+
+@if (ToggleSubtaskModal)
+{
+   <ViewSubtaskDetailsModal ActiveTask="ActiveSubtask" ToggleModal="() => ToggleStModal()" Sections="Sections"/>
+}
+
 <div class="backdrop" @onclick="ToggleModal"></div>
 <section id="task_details_modal">
    <div id="task_details">
@@ -26,14 +32,45 @@
             <label>Column:</label>
             <select>
                @foreach (Section col in Sections)
-                  {
-                     <option>@col.Name</option>
-                  }
+               {
+                  <option>@col.Name</option>
+               }
             </select>
          </div>
       </div>
    </div>
+   <div id="task_details_separator"></div>
    <div id="task_details_subtasks">
-      <h2>Subtask</h2>
+      <h2>Subtasks</h2>
+      @switch (IsStCreate)
+      {
+         case false:
+         {
+            <div id="task_details_subtasks_list">
+               @foreach (Subtask st in ActiveTask.Subtasks)
+               {
+                  <div @onclick="@(() => { ToggleStModal(st); })">
+                     <p id="task_details_subtasks_title">@st.Title</p>
+                     <p id="task_details_subtasks_section">@st.Section.Name</p>
+                  </div>
+               }
+            </div>
+            <button class="task_details_create_button" @onclick="@(() => IsStCreate = !IsStCreate)">Add New Subtask</button>
+            break;
+         }
+         case true:
+            <div id="task_details_create">
+               <label>Name:</label>
+               <input type="text" placeholder="Subtask Title" @bind="@NewSt.Title" id="modal_input"/>
+               <label>Issue:</label>
+               <textarea placeholder="Describe the task itself" @bind="@NewSt.Issue" id="task_modal_textbox" />
+               <div>
+                  <button class="task_details_create_button" @onclick="@HandleSubtaskCreation">Submit</button>
+                  <button class="task_details_create_button" @onclick="() => IsStCreate = false">Cancel</button>
+               </div>
+               
+            </div>
+            break;
+      }
    </div>
 </section>
